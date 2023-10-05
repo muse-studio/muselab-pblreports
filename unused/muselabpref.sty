@@ -1,15 +1,15 @@
 
-% ipsjpref.sty  (C) 2012 Information Processing Society of Japan
+% muselabpref.sty  (C) 2023 muse-lab, The University of Fukuchiyama
 % Copyright (C) 1995-2010 by Hiroshi Nakashima, Yasuki Saito and
-%                            The Editorial Board of the IPSJ Journal
+%                            The Editorial Board of the muselab Journal
 
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{ipsj}
-%\ProvidesClass{ipsj}
-% [2011/12/10-2012/03/09 v1.00-2.00 IPSJPREF.STY]
-% [2012/06/01 v2.01 IPSJPREF.STY]
- [2017/02/16 v3.00 IPSJ class]
+\ProvidesPackage{muselab}
+%\ProvidesClass{muselab}
+% [2011/12/10-2012/03/09 v1.00-2.00 muselabPREF.STY]
+% [2012/06/01 v2.01 muselabPREF.STY]
+ [2017/02/16 v3.00 muselab class]
 
 
 
@@ -106,7 +106,7 @@
 
 
 \ifDS@english
-\def\ps@IPSJTITLEheadings{%
+\def\ps@muselabTITLEheadings{%
  \def\@oddhead{\@Ltop%
 \rlap{\small{%%
 %%
@@ -138,100 +138,100 @@
 %
 \ifDS@ACS
   \ifDS@alone
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \else
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
 %
 \ifDS@PRO
   \ifDS@alone
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \else
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
 %
 \ifDS@TOD
   \ifDS@alone
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \else
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
 %
 \ifDS@TOM
   \ifDS@alone
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \else
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
 %
 \ifDS@TBIO
   \ifDS@alone
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \else
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
 %
 \ifDS@CVA
   \ifDS@alone
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \else
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
 %
 \ifDS@SLDM
   \ifDS@alone
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \else
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
 %
 %\ifDS@JIP
-%   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
+%   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
 %   \HeadfontE{(\@monthyear)}%
 %\else\relax\fi
 \ifDS@JIP
   \ifDS@alone
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \else
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
 %
 \ifDS@CDS
   \ifDS@alone
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \else
-   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
 %
 %\ifDS@EEE
-%   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}}}\ %
+%   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}}}\ %
 %   \HeadfontE{(\@monthyear)}%
 %\else\relax\fi
 %
@@ -247,19 +247,19 @@
 %%%%
 \bgroup
 \ifDS@TBIO
-   [DOI: 10.2197/ipsjtbio.\number\c@volume.\pageref{ipsj@firstpage}]
+   [DOI: 10.2197/muselabtbio.\number\c@volume.\pageref{muselab@firstpage}]
 \else\fi
 %
 \ifDS@CVA
-   [DOI: 10.2197/ipsjtcva.\number\c@volume.\pageref{ipsj@firstpage}]
+   [DOI: 10.2197/muselabtcva.\number\c@volume.\pageref{muselab@firstpage}]
 \else\fi
 %
 \ifDS@SLDM
-   [DOI: 10.2197/ipsjtsldm.\number\c@volume.\pageref{ipsj@firstpage}]
+   [DOI: 10.2197/muselabtsldm.\number\c@volume.\pageref{muselab@firstpage}]
 \else\fi
 %
 \ifDS@JIP
-   [DOI: 10.2197/ipsjjip.\number\c@volume.\pageref{ipsj@firstpage}]
+   [DOI: 10.2197/muselabjip.\number\c@volume.\pageref{muselab@firstpage}]
 \else\fi
 %
 %%
@@ -277,7 +277,7 @@
 %\selectfont%
 %\normalfont%
 {\bothashira%
-\copyright \ {\@footyear} Information Processing Society of Japan%
+\copyright \ {\@footyear} muse-lab, The University of Fukuchiyama%
 }}%
 \hfil
 %\fontsize{13\Q}{0\h}%
@@ -306,7 +306,7 @@
 \else
 %%%%%%%%%
 %%%
-\def\ps@IPSJTITLEheadings{%
+\def\ps@muselabTITLEheadings{%
  \def\@oddhead{\@Ltop%
 \rlap{\small%
 %%
@@ -321,11 +321,11 @@
 %\hskip12\JQ{\HeadfontE{No.\number\c@number}}%
 %
 \ifDS@alone
-\hskip12\JQ{\HeadfontE{\pageref{ipsj@firstpage}}}\ %
+\hskip12\JQ{\HeadfontE{\pageref{muselab@firstpage}}}\ %
 \HeadfontE{(\@monthyear)}%
 \else
 %
-\hskip12\JQ{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
+\hskip12\JQ{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
 \HeadfontE{(\@monthyear)}
 \fi
 }}%
@@ -342,7 +342,7 @@
 %\fontsize{10\Q}{0\h}\usefont{OT1}{ptm}{m}{n}%Times
 %\selectfont%
 {\bothashira%
-{\textcopyrighttx} \ {\@footyear} Information Processing Society of Japan%
+{\textcopyrighttx} \ {\@footyear} muse-lab, The University of Fukuchiyama%
 }}%
 \hfil%
 %\fontsize{13\Q}{0\h}%

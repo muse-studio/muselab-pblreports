@@ -1,7 +1,7 @@
-% ipsjsort-e.bst 28-Oct-10 by Hiroshi Nakashima (ver 3.00)
-% ipsjsort-e.bst 15-Jun-07 by Hiroshi Nakashima (ver 2.12)
-% ipsjsort.bst 30-Jan-02 by Hiroshi Nakashima (ver 2.00)
-% ipsjsort.bst 28-Dec-93 by Hiroshi Nakashima (ver 1.00)
+% muselabsort.bst 28-Oct-10 by Hiroshi Nakashima (ver 3.00)
+% muselabsort.bst 15-Jun-07 by Hiroshi Nakashima (ver 2.12)
+% muselabsort.bst 30-Jan-02 by Hiroshi Nakashima (ver 2.00)
+% muselabsort.bst 28-Dec-93 by Hiroshi Nakashima (ver 1.00)
 % jssst.bst tomura@etl.go.jp (Satoru Tomura)
 % BibTeX standard bibliography style `jplain'
 	% version 0.10 for JBibTeX versions 0.10 or later, JLaTeX version 2.09.
@@ -33,6 +33,7 @@ ENTRY
     url							% 3.00(1)
     volume
     year
+    yomi
   }
   {}
   { label }
@@ -51,10 +52,20 @@ FUNCTION {init.state.consts}
 
 STRINGS { s t }
 
+FUNCTION {is.kanji}
+{ is.kanji.str$ }					% 1.00(2), 2.00(1)
+
+FUNCTION {is.kanji.title}				% 3.00(1)
+{ title is.kanji.str$ }
+
 FUNCTION {output.nonnull}
 { 's :=
   output.state mid.sentence =
-    { ", " * write$ }
+    { duplicate$ is.kanji				% 2.00(2)
+	{ "，" * write$ }
+	{ ", " * write$ }
+      if$
+    }
     { output.state after.block =
 	{ add.period$ write$
 	  newline$
@@ -244,7 +255,11 @@ FUNCTION {field.or.null}
 FUNCTION {emphasize}
 { duplicate$ empty$
     { pop$ "" }
-    { "{\em " swap$ * "}" * }
+    { duplicate$ is.kanji
+        'skip$						% 1.00(3)
+        { "{\em " swap$ * "}" * }			% 2.00(3)
+      if$
+    }
   if$
 }
 
@@ -256,13 +271,32 @@ FUNCTION {format.names}					% 1.00(4), 2.00(4)
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr "{vv }{ll}{, jj}{, f.}" format.name$ 't :=
+    { s nameptr "{ff}{ll}" format.name$ duplicate$ is.kanji
+	{ duplicate$ text.length$ #6 >
+	    { 't := }
+	    { pop$ s nameptr "{ff}　{ll}" format.name$ 't := }
+	  if$
+	}
+        { pop$ s nameptr "{vv }{ll}{, jj}{, f.}" format.name$ 't := }
+      if$
       nameptr #1 >
 	{ namesleft #1 >
-	    { ", " * t * }
+	    { s is.kanji
+		{ "，" }
+		{ ", " }
+	      if$
+	      * t * }
 	    { t "others" =
-		{" et al." * }
-		{" and " * t * }
+		{ s is.kanji
+			{"ほか" * }
+			{" et al." * }
+		      if$
+                }
+		{ s is.kanji
+			{"，" * t * }	% put "," here for Kanji (H.N.)
+			{" and " * t * }
+	     	      if$
+		}
 	      if$
 	    }
 	  if$
@@ -283,7 +317,10 @@ FUNCTION {format.authors}
 }
 
 FUNCTION {add.colon}					% 2.00(5)
-{ ": " *
+{ duplicate$ is.kanji
+    { "\：" * }						% 2.12(1)
+    { ": " * }
+  if$
 }
 
 FUNCTION {format.editors.inparen}			% 2.00(6)
@@ -291,8 +328,12 @@ FUNCTION {format.editors.inparen}			% 2.00(6)
     { "" }
     { editor format.names
       editor num.names$ #1 >
-	{", eds." *}
-	{", ed." *}
+	{ editor is.kanji
+		{"，編" * } {", eds." *} if$
+	}
+	{ editor is.kanji
+		{"，編" *}  {", ed." *} if$
+	}
       if$
     }
   if$
@@ -303,8 +344,12 @@ FUNCTION {format.editors}
     { "" }
     { editor format.names
       editor num.names$ #1 >
-	{"(eds.)" *}
-	{"(ed.)" *}
+	{ editor is.kanji
+		{"（編）" * } {"(eds.)" *} if$		% 2.00(7)
+	}
+	{ editor is.kanji
+		{"（編）" *}  {"(ed.)" *} if$		% 2.00(7)
+	}
       if$
     }
   if$
@@ -351,7 +396,10 @@ FUNCTION {format.date}
 
 FUNCTION {format.ref.date}				% 3.00(1)>>
 { before.year 'output.state :=
-  "\refdatee{" refdate "}" * *
+  is.kanji.title
+    { "\refdatej{" refdate "}" * *}
+    { "\refdatee{" refdate "}" * *}
+  if$
 }							% 3.00(1)<<
 
 FUNCTION {tie.or.space.connect}
@@ -383,9 +431,17 @@ FUNCTION {output.series.volume.number}
 { series empty$
     { output.volume
       output.number }
-    { series output
-      output.volume
-      output.number }
+    { series is.kanji
+      volume empty$
+      number empty$
+      or
+      and
+        { series " " * volume * number * output}
+        { series output
+          output.volume
+          output.number}
+      if$
+   }
  if$
 }
 
@@ -423,14 +479,21 @@ FUNCTION {multi.page.check}
 }
 
 FUNCTION {format.online}				% 3.00(1)>>
-{ duplicate$ empty$
-    { "(online)" * }
-    { " (online)" * }
+{ is.kanji.title
+    { "（オンライン）" * }
+    { duplicate$ empty$
+        { "(online)" * }
+        { " (online)" * }
+      if$
+    }
   if$
 }							% 3.00(1)<<
 
 FUNCTION {format.url}					% 3.00(1)>>
-{ "\urle{" url "}" * *
+{ is.kanji.title
+    { "\urlj{" url "}" * * }
+    { "\urle{" url "}" * * }
+  if$
 }							% 3.00(1)<<
 
 FUNCTION {format.pages}					% 1.00(7)
@@ -494,7 +557,11 @@ FUNCTION {format.chapter.pages}
     'format.pages
     { type empty$
 	{ "chapter" chapter tie.or.space.connect }
-        { type "l" change.case$ chapter tie.or.space.connect }
+        { type is.kanji 
+             { chapter type tie.or.space.connect }
+             { type "l" change.case$ chapter tie.or.space.connect }
+          if$
+        }
       if$
       pages empty$
 	'skip$
@@ -511,7 +578,11 @@ FUNCTION {format.in.ed.booktitle}
     { booktitle emphasize
       editor empty$
 	'skip$
-	{ " (" * format.editors.inparen * ")" *}	% 1.00(9), 2.00(6)
+	{ booktitle is.kanji
+	    { "（" * format.editors.inparen * "）" *}	% 2.00(6,7)
+	    { " (" * format.editors.inparen * ")" *}	% 1.00(9), 2.00(6)
+	  if$
+	}
       if$
     }
   if$
@@ -538,7 +609,15 @@ FUNCTION {format.thesis.type}
 
 FUNCTION {format.tr.number}
 { type empty$
-    { "Technical Report" }
+    { title empty$
+        { "Technical Report" }
+        { title is.kanji
+            { "技術報告" }
+            { "Technical Report" }
+          if$
+        }
+      if$
+    }
     {type}
   if$
   number empty$
@@ -563,15 +642,25 @@ FUNCTION {format.article.crossref}			% 2.00(8)
 }
 
 FUNCTION {format.crossref.editor}			% 1.00(11)
-{ editor #1 "{vv }{ll}" format.name$
+{ editor #1
+  editor is.kanji { "{ff}" } { "{vv }{ll}" } if$
+  format.name$
   editor num.names$ duplicate$
   #2 >
-    {pop$ " et al." * }
+    { editor is.kanji
+	  {pop$ "ほか" *} {pop$ " et al." * } if$
+    }
     { #2 <
 	'skip$
 	{ editor #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
-	    {" et al." * }
-	    {" and " * editor #2 "{vv }{ll}" format.name$ * }
+	    { editor is.kanji
+		{"ほか" *} {" et al." * } if$
+	    }
+	    { editor is.kanji
+		{"・" * editor #2 "{ff}" format.name$ * }
+		{" and " * editor #2 "{vv }{ll}" format.name$ * }
+	      if$
+	    }
 	  if$
 	}
       if$
@@ -600,7 +689,9 @@ FUNCTION {format.book.crossref}				% 2.00(8)
   " \cite{" * crossref * "}" *
   volume empty$
     { "empty volume in " cite$ * "'s crossref of " * crossref * warning$ }
-    { * "Vol." * volume tie.or.space.connect }
+    { duplicate$ is.kanji { "，" } { ", "} if$ *
+      "Vol." * volume tie.or.space.connect
+    }
   if$
 }
 
@@ -850,7 +941,14 @@ FUNCTION {mastersthesis}
   output.bibitem
   format.authors add.colon				% 2.00(5)
   title output
-  "Master's thesis"
+  author empty$
+    { "Master's thesis" }
+    { author is.kanji
+        { "修士論文" }  
+        { "Master's thesis" }
+      if$
+    }
+  if$
   format.thesis.type output.nonnull
   school output
   address output
@@ -889,7 +987,14 @@ FUNCTION {phdthesis}
   output.bibitem 
   format.authors add.colon				% 2.00(5)
   title output						% 2.00(9)
-  "PhD Thesis"
+  author empty$
+    { "PhD Thesis" }
+    { author is.kanji
+        { "博士論文" }
+        { "PhD Thesis" }
+      if$
+    }
+  if$
   format.thesis.type output.nonnull
   school output
   address output
@@ -1072,6 +1177,11 @@ FUNCTION {chop.word}
 
 FUNCTION {sort.format.names}
 { 's :=
+  yomi empty$
+     'skip$
+     { yomi 's := }
+  if$
+
   #1 'nameptr :=
   ""
   s num.names$ 'numnames :=

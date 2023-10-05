@@ -1,7 +1,7 @@
-% ipsjsort-e.bst 28-Oct-10 by Hiroshi Nakashima (ver 3.00)
-% ipsjsort-e.bst 15-Jun-07 by Hiroshi Nakashima (ver 2.12)
-% ipsjsort.bst 30-Jan-02 by Hiroshi Nakashima (ver 2.00)
-% ipsjsort.bst 28-Dec-93 by Hiroshi Nakashima (ver 1.00)
+% muselabsort-e.bst 28-Oct-10 by Hiroshi Nakashima (ver 3.00)
+% muselabsort-e.bst 15-Jun-07 by Hiroshi Nakashima (ver 2.12)
+% muselabsort.bst 30-Jan-02 by Hiroshi Nakashima (ver 2.00)
+% muselabsort.bst 28-Dec-93 by Hiroshi Nakashima (ver 1.00)
 % jssst.bst tomura@etl.go.jp (Satoru Tomura)
 % BibTeX standard bibliography style `jplain'
 	% version 0.10 for JBibTeX versions 0.10 or later, JLaTeX version 2.09.
@@ -1053,6 +1053,151 @@ MACRO {toplas} {"ACM Transactions on Programming Languages and Systems"}
 MACRO {tcs} {"Theoretical Computer Science"}
 
 READ
+
+FUNCTION {sortify}
+{ purify$
+  "l" change.case$
+}
+
+INTEGERS { len }
+
+FUNCTION {chop.word}
+{ 's :=
+  'len :=
+  s #1 len substring$ =
+    { s len #1 + global.max$ substring$ }
+    's
+  if$
+}
+
+FUNCTION {sort.format.names}
+{ 's :=
+  #1 'nameptr :=
+  ""
+  s num.names$ 'numnames :=
+  numnames 'namesleft :=
+    { namesleft #0 > }
+    { nameptr #1 >
+	{ "   " * }
+	'skip$
+      if$
+      s nameptr "{vv{ } }{ll{ }}{  ff{ }}{  jj{ }}" format.name$ 't :=
+      nameptr numnames = t "others" = and
+	{ "et al" * }
+	{ t sortify * }
+      if$
+      nameptr #1 + 'nameptr :=
+      namesleft #1 - 'namesleft :=
+    }
+  while$
+}
+
+FUNCTION {sort.format.title}
+{ 't :=
+  "A " #2
+    "An " #3
+      "The " #4 t chop.word
+    chop.word
+  chop.word
+  sortify
+  #1 global.max$ substring$
+}
+
+FUNCTION {author.sort}
+{ author empty$
+    { key empty$
+	{ "to sort, need author or key in " cite$ * warning$
+	  ""
+	}
+	{ key sortify }
+      if$
+    }
+    { author sort.format.names }
+  if$
+}
+
+FUNCTION {author.editor.sort}
+{ author empty$
+    { editor empty$
+	{ key empty$
+	    { "to sort, need author, editor, or key in " cite$ * warning$
+	      ""
+	    }
+	    { key sortify }
+	  if$
+	}
+	{ editor sort.format.names }
+      if$
+    }
+    { author sort.format.names }
+  if$
+}
+
+FUNCTION {author.organization.sort}
+{ author empty$
+    { organization empty$
+	{ key empty$
+	    { "to sort, need author, organization, or key in " cite$ * warning$
+	      ""
+	    }
+	    { key sortify }
+	  if$
+	}
+	{ "The " #4 organization chop.word sortify }
+      if$
+    }
+    { author sort.format.names }
+  if$
+}
+
+FUNCTION {editor.organization.sort}
+{ editor empty$
+    { organization empty$
+	{ key empty$
+	    { "to sort, need editor, organization, or key in " cite$ * warning$
+	      ""
+	    }
+	    { key sortify }
+	  if$
+	}
+	{ "The " #4 organization chop.word sortify }
+      if$
+    }
+    { editor sort.format.names }
+  if$
+}
+
+FUNCTION {presort}
+{ type$ "book" =
+  type$ "inbook" =
+  or
+    'author.editor.sort
+    { type$ "proceedings" =
+	'editor.organization.sort
+	{ type$ "manual" =
+	    'author.organization.sort
+	    'author.sort
+	  if$
+	}
+      if$
+    }
+  if$
+  "    "
+  *
+  year field.or.null sortify
+  *
+  "    "
+  *
+  title field.or.null
+  sort.format.title
+  *
+  #1 entry.max$ substring$
+  'sort.key$ :=
+}
+
+ITERATE {presort}
+
+SORT
 
 STRINGS { longest.label }
 

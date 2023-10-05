@@ -1,14 +1,14 @@
 
-% muselab.cls  (C) 2023 muse-lab: Mitsuyo Hashida
+% ipsj.cls  (C) 2012 Information Processing Society of Japan
 % Copyright (C) 1995-2010 by Hiroshi Nakashima, Yasuki Saito and
-%                            The Editorial Board of the muselab Journal
+%                            The Editorial Board of the IPSJ Journal
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{muselab}
-% [2011/08/22-11/25 Test.ver muselab class]
-% [2011/12/15-2012/04/24 v1.01-v1.02e muselab class]
-% [2012/06/01-2018/03/22 v1.03-v3.05 muselab class]
- [2018/08/03 v4.0 muselab class]
+\ProvidesClass{ipsj}
+% [2011/08/22-11/25 Test.ver IPSJ class]
+% [2011/12/15-2012/04/24 v1.01-v1.02e IPSJ class]
+% [2012/06/01-2018/03/22 v1.03-v3.05 IPSJ class]
+ [2018/08/03 v4.0 IPSJ class]
 
 
 
@@ -1085,13 +1085,13 @@
 
 %
 \def\SIGHead{\ifDS@english%
-{muselab Transactions on}%
-\else 福知山公立大学情報学部 地域情報PBLプロジェクト報告書\fi}%%
+{IPSJ Transactions on}%
+\else 情報処理学会論文誌\fi}%%
 
 
 \def\signame@DAM{\ifDS@english%
 Electronic Preprint for Journal of Information Processing%
-\else 福知山公立大学情報学部 地域情報PBLプロジェクト報告書\fi}%%
+\else 情報処理学会論文誌\fi}%%
 
 \ifDS@english
 \newcommand{\COMS}{Consumer Devices \& Systems}
@@ -1462,7 +1462,7 @@ c}}}
 
 %%%<<<< 1.02
 \ifDS@english
-\def\ps@muselabTITLEheadings{%
+\def\ps@IPSJTITLEheadings{%
  \def\@oddhead{\@Ltop%
 \rlap{\small{%%
 %%
@@ -1504,7 +1504,7 @@ c}}}
 %\hskip1em{\HeadfontE{No.\number\c@number}}%
   \ifDS@JIP
   \else
-     \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+     \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
      \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
@@ -1513,12 +1513,12 @@ c}}}
 %%%<<<< 3.01
 %\hskip1em{\HeadfontE{No.\number\c@number}}%
    \ifDS@abstract
-      \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}}}\ %
+      \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}}}\ %
       \HeadfontE{(\@monthyear)}%
    \else
      \ifDS@JIP
      \else
-       \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+       \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
        \HeadfontE{(\@monthyear)}%
      \fi
    \fi
@@ -1529,7 +1529,7 @@ c}}}
 %\hskip1em{\HeadfontE{No.\number\c@number}}%
   \ifDS@JIP
   \else
-     \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+     \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
      \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
@@ -1539,28 +1539,28 @@ c}}}
 %\hskip1em{\HeadfontE{No.\number\c@number}}%
   \ifDS@JIP
   \else
-      \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+      \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
       \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
 %
 \ifDS@TBIO
-   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
 \else\relax\fi
 %
 \ifDS@CVA
-   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
 \else\relax\fi
 %
 \ifDS@SLDM
-   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
 \else\relax\fi
 %
 \ifDS@JIP
-   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
 \else\relax\fi
 %
@@ -1569,7 +1569,7 @@ c}}}
 %\hskip1em{\HeadfontE{No.\number\c@number}}%
   \ifDS@JIP
   \else
-     \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+     \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
      \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
@@ -1580,7 +1580,7 @@ c}}}
 \hskip1em{\HeadfontE{No.\number\c@number}}%
   \ifDS@JIP
   \else
-     \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+     \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
      \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
@@ -1591,7 +1591,7 @@ c}}}
 %\hskip1em{\HeadfontE{No.\number\c@number}}%
   \ifDS@JIP
   \else
-     \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+     \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
      \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
@@ -1602,7 +1602,7 @@ c}}}
 %\hskip1em{\HeadfontE{No.\number\c@number}}%
   \ifDS@JIP
   \else
-     \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+     \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
      \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
@@ -1616,19 +1616,19 @@ c}}}
 %%%%
 \bgroup
 \ifDS@TBIO
-   [DOI: 10.2197/muselabtbio.\number\c@volume.\pageref{muselab@firstpage}]
+   [DOI: 10.2197/ipsjtbio.\number\c@volume.\pageref{ipsj@firstpage}]
 \else\fi
 %
 \ifDS@CVA
-   [DOI: 10.2197/muselabtcva.\number\c@volume.\pageref{muselab@firstpage}]
+   [DOI: 10.2197/ipsjtcva.\number\c@volume.\pageref{ipsj@firstpage}]
 \else\fi
 %
 \ifDS@SLDM
-   [DOI: 10.2197/muselabtsldm.\number\c@volume.\pageref{muselab@firstpage}]
+   [DOI: 10.2197/ipsjtsldm.\number\c@volume.\pageref{ipsj@firstpage}]
 \else\fi
 %
 \ifDS@JIP
-   [DOI: 10.2197/muselabjip.\number\c@volume.\pageref{muselab@firstpage}]
+   [DOI: 10.2197/ipsjjip.\number\c@volume.\pageref{ipsj@firstpage}]
 \else\fi
 %
 %%
@@ -1646,7 +1646,7 @@ c}}}
 %\selectfont%
 %\normalfont%
 {\bothashira%
-\copyright \ {\@footyear} muse-lab, The University of Fukuchiyama%
+\copyright \ {\@footyear} Information Processing Society of Japan%
 }}%
 \hfil
 %\fontsize{13\Q}{0\h}%
@@ -1680,7 +1680,7 @@ c}}}
 \else
 %%%%%%%%%
 %%%
-\def\ps@muselabTITLEheadings{%
+\def\ps@IPSJTITLEheadings{%
  \def\@oddhead{\@Ltop%
 \rlap{\small%
 %%
@@ -1694,10 +1694,10 @@ c}}}
 \hskip12\JQ{\HeadfontE{Vol.\number\c@volume}}%
 \hskip12\JQ{\HeadfontE{No.\number\c@number}}% jp1p
 \ifDS@abstract
-   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}}}\ %
    \HeadfontE{(\@monthyear)}%
 \else
-\hskip12\JQ{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+\hskip12\JQ{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
 \HeadfontE{(\@monthyear)}%
 \fi
 }}%
@@ -1714,7 +1714,7 @@ c}}}
 %\fontsize{10\Q}{0\h}\usefont{OT1}{ptm}{m}{n}%Times
 %\selectfont%
 {\bothashira%
-{\textcopyrighttx} \ {\@footyear} muse-lab, The University of Fukuchiyama%
+{\textcopyrighttx} \ {\@footyear} Information Processing Society of Japan%
 }}%
 \hfil%
 %\fontsize{13\Q}{0\h}%
@@ -1780,7 +1780,7 @@ c}}}
 %\hskip1em{\HeadfontE{No.\number\c@number}}%
   \ifDS@JIP
   \else
-     \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+     \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
      \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
@@ -1790,7 +1790,7 @@ c}}}
 %\hskip1em{\HeadfontE{No.\number\c@number}}%
      \ifDS@JIP
      \else
-       \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+       \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
        \HeadfontE{(\@monthyear)}%
      \fi
 \else\relax\fi
@@ -1800,7 +1800,7 @@ c}}}
 %\hskip1em{\HeadfontE{No.\number\c@number}}%
   \ifDS@JIP
   \else
-     \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+     \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
      \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
@@ -1810,28 +1810,28 @@ c}}}
 %\hskip1em{\HeadfontE{No.\number\c@number}}%
   \ifDS@JIP
   \else
-     \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+     \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
      \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
 %
 \ifDS@TBIO
-   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
 \else\relax\fi
 %
 \ifDS@CVA
-   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
 \else\relax\fi
 %
 \ifDS@SLDM
-   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
 \else\relax\fi
 %
 \ifDS@JIP
-   \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+   \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
    \HeadfontE{(\@monthyear)}%
 \else\relax\fi
 %
@@ -1840,7 +1840,7 @@ c}}}
 %\hskip1em{\HeadfontE{No.\number\c@number}}%
   \ifDS@JIP
   \else
-     \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+     \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
      \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
@@ -1851,7 +1851,7 @@ c}}}
 %\hskip1em{\HeadfontE{No.\number\c@number}}%
   \ifDS@JIP
   \else
-     \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+     \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
      \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
@@ -1862,7 +1862,7 @@ c}}}
 %\hskip1em{\HeadfontE{No.\number\c@number}}%
   \ifDS@JIP
   \else
-     \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+     \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
      \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
@@ -1873,7 +1873,7 @@ c}}}
 %\hskip1em{\HeadfontE{No.\number\c@number}}%
   \ifDS@JIP
   \else
-     \hskip12\Q{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+     \hskip12\Q{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
      \HeadfontE{(\@monthyear)}%
   \fi
 \else\relax\fi
@@ -1897,7 +1897,7 @@ c}}}
 %\fontsize{10\Q}{0\h}\usefont{OT1}{ptm}{m}{n}%Times
 %\selectfont%
 {\bothashira%
-\copyright \ {\@footyear} muse-lab, The University of Fukuchiyama%
+\copyright \ {\@footyear} Information Processing Society of Japan%
 }}%
 \hfil
 %\fontsize{13\Q}{0\h}\usefont{OT1}{ptm}{m}{n}%Times
@@ -1958,7 +1958,7 @@ c}}}
 {%%
 \hskip12\JQ{\HeadfontE{Vol.\number\c@volume}}%
 \hskip12\JQ{\HeadfontE{No.\number\c@number}}% jp
-\hskip12\JQ{\HeadfontE{\pageref{muselab@firstpage}--\pageref{muselab@lastpage}}}\ %
+\hskip12\JQ{\HeadfontE{\pageref{ipsj@firstpage}--\pageref{ipsj@lastpage}}}\ %
 \HeadfontE{(\@monthyear)}}}%
 %%%%
 \smash{\raisebox{-6mm}{\rlap{%
@@ -1972,7 +1972,7 @@ c}}}
 \rlap{%\fontsize{10\Q}{0\h}\usefont{OT1}{ptm}{m}{n}%Times
 %\selectfont%
 {\bothashira%
-{\textcopyrighttx} \ {\@footyear} muse-lab, The University of Fukuchiyama%
+{\textcopyrighttx} \ {\@footyear} Information Processing Society of Japan%
 }}%
 \hfil%
 %\fontsize{13\Q}{0H}\usefont{OT1}{ptm}{m}{n}%Times
@@ -1993,7 +1993,7 @@ c}}}
 
 %%%<<<< 1.02
 
-\def\muselab@year{%
+\def\ipsj@year{%
 %%%
 \ifDS@JIP
 \ifnum\c@year<\z@
@@ -2051,7 +2051,7 @@ c}}}
 %%
 %===
 \ifnum\c@year<\z@
-\c@year2023 \advance\c@year\c@volume 
+\c@year1959 \advance\c@year\c@volume 
 \fi
 \number\c@year
 %===
@@ -2063,8 +2063,8 @@ c}}}
 %%%<<<< 1.02
 %%%<<<< 1.09
 %%%<<<< 3.01
-\def\muselab@month{{%
-	\@tempcnta\ifDS@online\muselab@olh@month \else
+\def\ipsj@month{{%
+	\@tempcnta\ifDS@online\ipsj@olh@month \else
 		\ifnum\c@month<\z@ \c@number \else \c@month \fi \fi \relax
    %\ifDS@JIP
 	%\ifcase\@tempcnta???\or Jan.\or Mar.\or May\or July\or Sep.\or Nov.\else
@@ -2080,9 +2080,9 @@ c}}}
 
 
 
-\def\@monthyear{\muselab@month \hskip.5\Cwd \muselab@year}
+\def\@monthyear{\ipsj@month \hskip.5\Cwd \ipsj@year}
 
-\def\@footyear{\muselab@year}
+\def\@footyear{\ipsj@year}
 
 
 \newcounter{volume} \c@volume\z@
@@ -2098,12 +2098,12 @@ c}}}
 
 
 
-\AtBeginDocument{\label{muselab@firstpage}}
+\AtBeginDocument{\label{ipsj@firstpage}}
 \AtEndDocument{%
  \clearpage
  \addtocounter{page}{-1}%
  \immediate\write\@auxout
-  {\string\newlabel{muselab@lastpage}{{}{\thepage}}}%
+  {\string\newlabel{ipsj@lastpage}{{}{\thepage}}}%
 }
 
 
@@ -2404,7 +2404,7 @@ c}}}
       \global\@topnum\z@   % Prevents figures from going at top of page.
       \@maketitle
     \fi
-     \thispagestyle{muselabTITLEheadings}
+     \thispagestyle{IPSJTITLEheadings}
 \@thanks
   \endgroup
   \setcounter{footnote}{0}%
@@ -4065,8 +4065,8 @@ Keywords:\hskip.5em%
 %==================================================================================================
 
 
-%%## % muselabpapers.sty ##%%
-%% from "muselabpapers.sty", a little customized
+%%## % ipsjpapers.sty ##%%
+%% from "ipsjpapers.sty", a little customized
 \leftmargini\Cwd
 \leftmarginii.5\Cwd
 \leftmarginiii2\Cwd
@@ -5909,18 +5909,18 @@ $\langle$\nobreak{#2}\nobreak$\rangle$}
 \fi
 
 
-%\ifDS@draft\def\next{\input{muselabdraft.sty}\endinput}\else\let\next\relax\fi
+%\ifDS@draft\def\next{\input{ipsjdraft.sty}\endinput}\else\let\next\relax\fi
 %\next
 
-\ifDS@preface\def\next{\input{muselabpref.sty}\endinput}\else\let\next\relax\fi
+\ifDS@preface\def\next{\input{ipsjpref.sty}\endinput}\else\let\next\relax\fi
 \next
 
 
-\ifDS@OT\def\next{\input{muselabot.sty}\endinput}\else\let\next\relax\fi
+\ifDS@OT\def\next{\input{ipsjot.sty}\endinput}\else\let\next\relax\fi
 \next
 
 %% v1.02c
-\ifDS@techrep\def\next{\input{muselabtech.sty}\endinput}\else\let\next\relax\fi
+\ifDS@techrep\def\next{\input{ipsjtech.sty}\endinput}\else\let\next\relax\fi
 \next
 
 

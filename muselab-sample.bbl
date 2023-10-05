@@ -1,0 +1,24 @@
+\begin{thebibliography}{1}
+
+\bibitem{okumura}
+奥村晴彦\：{\LaTeX} 美文書作成入門，技術評論社 (1991).
+
+\bibitem{webpage2}
+情報処理学会論文誌編集委員会\：「情報処理学会論文誌（muselab
+  Journal）」原稿執筆案内，情報処理学会（オンライン），\urlj{http://www.muselab.or.jp/08editt/journal/shippitsu/ronbunJ-prms.pdf}
+  \refdatej{2010-10-28}.
+
+\bibitem{book1}
+Foley, J.~D. et al.: {\em Computer Graphics --- Principles and Practice},
+  System Programming Series, Addison-Wesley, Reading, Massachusetts, 2nd
+  edition (1990).
+
+\bibitem{book2}
+千葉則茂，村岡一信\：レイトレーシングCG入門，Information {\&} Computing,
+  Vol.~46, サイエンス社 (1990).
+
+\bibitem{book3}
+Chang, C.~L. and Lee, R. C.~T.: {\em Symbolic Logic and Mechanical Theorem
+  Proving}, Academic Press, New York (1973).
+
+\end{thebibliography}

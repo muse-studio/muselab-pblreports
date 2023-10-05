@@ -1,14 +1,14 @@
 
-% muselabtech.sty  (C) 2023 muse-lab, The University of Fukuchiyama
+% ipsjtech.sty  (C) 2012 Information Processing Society of Japan
 % Copyright (C) 1995-2010 by Hiroshi Nakashima, Yasuki Saito and
-%                            The Editorial Board of the muselab Journal
+%                            The Editorial Board of the IPSJ Journal
 
 
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{muselab}
-% [2012/03/26-05/02 v1.00-2.00 muselabTECH.STY]
- [2012/06/01 v3.00 muselabTECH.STY]
+\ProvidesPackage{ipsj}
+% [2012/03/26-05/02 v1.00-2.00 IPSJTECH.STY]
+ [2012/06/01 v3.00 IPSJTECH.STY]
 
 
 
@@ -16,14 +16,14 @@
 %%%%%%%%
 %techrep
 %%%%%%%%
-\def\biography{\muselabnobiography}
-\def\endbiography{\muselabendnobiography}
+\def\biography{\ipsjnobiography}
+\def\endbiography{\ipsjendnobiography}
 
-\def\muselabnobiography{\let\profile\@gobble
+\def\ipsjnobiography{\let\profile\@gobble
 	\ifDS@english \let\author\@gobble \fi
 	\let\adjust\@gobble \setbox0\vbox\bgroup
 	\tolerance\@M \hbadness\@M \hfuzz\maxdimen}
-\def\muselabendnobiography{\egroup\setbox0\hbox{}}
+\def\ipsjendnobiography{\egroup\setbox0\hbox{}}
 
 
 
@@ -58,13 +58,13 @@
 
 %%
 \def\SIGHead{\ifDS@english%
-%{muselab SIG Technical Report}%
-\else 福知山公立大学情報学部 地域情報PBLプロジェクト報告書\fi}%%
+{IPSJ SIG Technical Report}%
+\else 情報処理学会研究報告\fi}%%
 %
 
 \def\signame@DAM{\ifDS@english%
-%muselab SIG Technical Report%
-\else 福知山公立大学情報学部 地域情報PBLプロジェクト報告書\fi}%%
+IPSJ SIG Technical Report%
+\else 情報処理学会研究報告\fi}%%
 
 
 
@@ -94,7 +94,7 @@
 
 %%%<<<< 1.02
 \ifDS@english
-\def\ps@muselabTITLEheadings{%
+\def\ps@IPSJTITLEheadings{%
  \def\@oddhead{\@Ltop%
 \rlap{\small{%%
 %%
@@ -108,7 +108,7 @@
  \def\@oddfoot{\@Lbot%
 \rlap{%\fontsize{10\Q}{0\h}%
 {\bothashira%
-\copyright \ {\@footyear} muse-lab, The University of Fukuchiyama%
+\copyright \ {\@footyear} Information Processing Society of Japan%
 }}%
 \hfil
 {\botnomble
@@ -122,7 +122,7 @@
 \else
 %%%%%%%%%
 %%%
-\def\ps@muselabTITLEheadings{%
+\def\ps@IPSJTITLEheadings{%
  \def\@oddhead{\@Ltop%
 \rlap{\small%
 %%
@@ -134,7 +134,7 @@
 %%%%
 \smash{\raisebox{-4mm}{\rlap{%
 {\DOIHeadfont%%
-(2023年度)%
+IPSJ SIG Technical Report%
 }%
 }}}%
 \hfil\@Rtop}%
@@ -143,7 +143,7 @@
  \def\@oddfoot{\@Lbot%
 \rlap{%
 {\bothashira%
-{\textcopyrighttx} \ {\@footyear} muse-lab, The University of Fukuchiyama%
+{\textcopyrighttx} \ {\@footyear} Information Processing Society of Japan%
 }}%
 \hfil%
 {\botnomble%
@@ -345,7 +345,7 @@
 
 
 
-\pagestyle{muselabTITLEheadings}
+\pagestyle{IPSJTITLEheadings}
 
 
 
