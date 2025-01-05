@@ -1,4 +1,9 @@
+*.lot
+*.lof
+*.toc
+*.fls
 *.log
 *.blg
 *.aux
 *.synctex.gz
+muselab-sample.fdb_latexmk
