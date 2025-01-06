@@ -280,6 +280,13 @@
 
 \pagestyle{muselabTITLEheadings}
 
+% ==============================================
+% .bblファイルで挟み込まれる \newblock がエラーを起こす場合の対策
+% ==============================================
+\makeatletter
+\newcommand\newblock{\hskip .11em\@plus.33em\@minus.07em}
+\makeatother
+
 \endinput
 
 
