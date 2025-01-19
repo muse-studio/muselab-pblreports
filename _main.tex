@@ -1,0 +1,142 @@
+\documentclass[submit,techrep,noauthor,dvipdfmx]{ipsj}  % <= ipsj で！
+%\documentclass[submit,techrep,noauthor]{ipsj}
+
+
+%======橋田ゼミ卒論仕様============================
+\usepackage{muselabtech}
+\usepackage{tocloft}
+\setcounter{tocdepth}{3}  % ここで目次の深さを設定．3: subsectionまで．4: paragraphまで
+\addtocontents{toc}{\cftpagenumbersoff{subsubsection}}
+
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{latexsym}
+\usepackage{newtxtext,newtxmath} % txfonts のモダンな代替
+\usepackage[utf8]{inputenc} 	%波ダッシュ（〜）を表記できるようにする
+
+\usepackage{float}	%必要なら
+\usepackage{adjustbox}	%必要なら
+\usepackage{multirow}	%必要なら
+\usepackage[]{pdfpages}	%必要なら
+\usepackage{url} %必要なら
+
+\def\Underline{\setbox0\hbox\bgroup\let\\\endUnderline}
+\def\endUnderline{\vphantom{y}\egroup\smash{\underline{\box0}}\\}
+\def\|{\verb|}
+
+% マル○記号を使いたい場合------ 
+%	○×〜 などは機種依存文字のため本文で直接は使えない
+%	本文では \maru と書くようにする
+%	cf) https://livingdead0812.hatenablog.com/entry/20161005/1475654232
+\newcommand{\maru}{\raise0.2ex\hbox{\textcircled{\scriptsize{ }}}}
+\newcommand{\nami}{$\sim$}
+
+% ------------------------------------------
+% ---- figure 環境で横に画像を並べる ------------------
+%	cf) https://atatat.hatenablog.com/entry/cloud_latex18_subcaption
+\usepackage[hang,small,bf]{caption}
+\usepackage[subrefformat=parens]{subcaption}
+\captionsetup{compatibility=false}
+% ------------------------------------------
+
+% ---- 添削用 ----------------------
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\Erase}[1]{\textcolor{red}{\sout{\textcolor{black}{#1}}}}
+% ------------------------------------------
+
+% ---- この論文オリジナル ------------
+% 何度も使う固有名詞や変数などを定義しておくと後で修正・変更が楽
+%\newcommand{\vi}{v_i}
+%\newcommand{\vpeak}{v_{\text{peak}}}
+%\newcommand{\vstart}{v_{\text{start}}}
+%\newcommand{\vend}{v_{\text{end}}}
+% ------------------------------------------
+
+
+% ==============================================
+% 引用文を整形する
+% ==============================================
+\usepackage{tcolorbox}
+\tcbuselibrary{listingsutf8} % 日本語を含む文章を扱う場合に便利
+\newtcolorbox{musequote}{%
+  colback=gray!10,    % 背景色（薄い灰色）
+  colframe=black,     % 枠線の色
+  boxrule=0.3mm,      % 枠線の太さ
+  arc=.5mm,            % 角の丸み
+  left=5mm,           % 内側の左余白
+  right=5mm,          % 内側の右余白
+  top=2mm,            % 内側の上余白
+  bottom=2mm,         % 内側の下余白
+  fontupper=\footnotesize
+}
+\newcommand{\from}[1]{\\\rightline{\small{---\textit{#1}}}}
+
+
+
+\begin{document}
+
+
+\title{卒業論文のタイトルをここに書く}
+
+%\etitle{How to Prepare Your Paper for IPSJ SIG Technical Report \\ (version 2018/10/29)}
+%SIGMUS/EC 予稿には入れるので，英文タイトルは考えておこう（情報学広場に掲載される英文タイトルがこれになる）
+
+%\affiliate{FUKU}{福知山公立大学情報学部\\
+%	3370 Azahori, Fukuchiyama-shi, Kyoto 620--0886, Japan}
+
+
+\author{32xx5xxx　福知山　華子}{FUKUCHIYAMA Hanako}{FUKU}[]
+%\author{32045033　酒井　愛実}{Joho Taro}{FUKU}[32045033@fukuchiyama.ac.jp] %SIGMUS/EC 予稿には入れる
+% \author{橋田 光代}{Mitsuyo Hashida}{FUKU}[hashida-mitsuyo@fukuchiyama.ac.jp] %SIGMUS/EC 予稿には入れる
+
+% 要旨キーワード：SIGMUS/EC予稿には入れる
+%\begin{abstract}
+%本研究では，音楽学習の取り組みについて調査する．また，語学学習から聴き比べに焦点を当てた音楽学習について考察する．
+%\end{abstract}
+%\begin{jkeyword}
+%情報処理学会論文誌ジャーナル，\LaTeX，スタイルファイル，べからず集
+%\end{jkeyword}
+%
+
+\maketitle
+
+\thispagestyle{empty}
+\clearpage
+\addtocounter{page}{-2}
+\newpage
+\setcounter{tocdepth}{3}
+
+%\section*{要旨}
+%本研究では，＊＊＊＊の取り組みについて調査する．また，＊＊＊＊について考察する．
+
+\tableofcontents %目次
+
+\listoffigures %図目次
+
+\listoftables %表目次
+
+\thispagestyle{empty}
+\clearpage
+
+
+
+% ==========================================
+% 本文．
+% ==========================================
+\input{muselab-sample}  % 本文は muselab-sample.tex に書く
+
+% ==========================================
+% 参考文献
+% ==========================================
+
+\bibliographystyle{muselabunsrt} % SIGMUS/EC予稿の時は ipsjunsrt にする
+\bibliography{muselab-sample} % .bibファイルの名前（Zoteroからエクスポートして作る）
+
+% ==========================================
+% 付録
+% ==========================================
+\newpage
+\appendix
+
+\input{appendix-sample} % 付録は appendix-sample.tex に書く
+
+\end{document}
