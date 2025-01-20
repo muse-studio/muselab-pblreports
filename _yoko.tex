@@ -1,0 +1,48 @@
+\documentclass[dvipdfmx,line_length=48zw,column_gap=2zw,number_of_lines=60,baselineskip=12pt]{jlreq}
+\jlreqsetup{itemization_beforeafter_space=0pt}
+\makeatletter
+\RenewBlockHeading{section}{1}{font={\jlreq@keepbaselineskip{\normalsize\sffamily\gtfamily}},indent=0pt,lines=1}
+\RenewBlockHeading{subsection}{2}{font={\jlreq@keepbaselineskip{\normalsize\sffamily\gtfamily}},indent=0pt,lines=1}
+\RenewBlockHeading{subsubsection}{3}{font={\jlreq@keepbaselineskip{\normalsize\sffamily\gtfamily}},indent=0pt,lines=1}
+\makeatother
+\pagestyle{empty}
+% ↑この上の部分は変更しない！
+% （LuaTeXを使う場合は \documentclass[dvipdfmx,... の dvipdfmx, を消す）
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%↓必要なパッケージを追加してください．
+\usepackage{mathtools,amssymb}
+\usepackage{newtxtext,newtxmath}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\twocolumn[
+{\Large
+\begin{center}
+%%↓タイトルを入力してください
+\input{author-title}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{center}
+}
+\vspace{12pt}
+\begin{flushright}
+福知山公立大学情報学部　\input{author-name} \\
+指導教員　橋田光代
+\end{flushright}
+\vspace{1\Cvs}
+]
+
+%% ここから本文を書く
+\input{muselab-yoko-sample}
+
+\bibliographystyle{muselabunsrt} % SIGMUS/EC予稿の時は ipsjunsrt にする
+\bibliography{muselab-sample} % .bibファイルの名前（Zoteroからエクスポートして作る）
+
+% \begin{thebibliography}{9}
+%   \bibitem{fukuchiyama} S.~Fukuchiyama and I.~Fukuchiyama, Impact of the Fukuchiyama model and future challenges, Nature, 621, pp.~80--100, 2023.
+%   \bibitem{takagi} 高木貞治，解析概論，岩波書店，1961．
+%   \bibitem{empty}
+% \end{thebibliography}
+
+\end{document}
