@@ -10,3 +10,5 @@
 *.bbl
 *.dvi
 .DS_Store
+2023/*
+unused/*
