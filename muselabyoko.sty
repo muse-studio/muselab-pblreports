@@ -1,0 +1,64 @@
+% muselabtech.sty  (C) 2024 muse-lab, The University of Fukuchiyama
+% Copyright (C) 2023-2025 by Mitsuyo Hashida
+
+
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{muselabyoko}
+
+\usepackage{mathtools,amssymb}
+\usepackage{latexsym}
+\usepackage{newtxtext,newtxmath}
+\usepackage[utf8]{inputenc} 	%波ダッシュ（〜）を表記できるようにする
+
+
+\usepackage[normalem]{ulem} % \soutを有効化
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\cut}[1]{\textcolor{red}{\sout{\textcolor{black}{#1}}}}
+
+
+
+% --- ipsj.cls から導入 ---
+\renewcommand{\figurename}{図}
+\renewcommand{\tablename}{表}
+
+\def\long@fig{\figurename~\nobreak}
+\def\short@fig{\figurename~\nobreak}
+\def\long@figs{\figurename~\nobreak}
+\def\short@figs{\figurename~\nobreak}
+
+\def\long@tab{\tablename~\nobreak}
+\def\short@tab{\tablename~\nobreak}
+\def\long@tabs{\tablename~\nobreak}
+\def\short@tabs{\tablename~\nobreak}
+
+\def\Figref{\bgroup\let\prefix@figtabref\long@fig
+    \@ifstar\figtabref@star\figtabref@}
+\def\figref{\bgroup\let\prefix@figtabref\short@fig
+    \@ifstar\figtabref@star\figtabref@}
+\def\Figsref{\bgroup\let\prefix@figtabref\long@figs
+    \@ifstar\figtabref@star\figtabref@}
+\def\figsref{\bgroup\let\prefix@figtabref\short@figs
+    \@ifstar\figtabref@star\figtabref@}
+
+\def\Tabref{\bgroup\let\prefix@figtabref\long@tab
+    \@ifstar\figtabref@star\figtabref@}
+\def\tabref{\bgroup\let\prefix@figtabref\short@tab
+    \@ifstar\figtabref@star\figtabref@}
+\def\Tabsref{\bgroup\let\prefix@figtabref\long@tabs
+    \@ifstar\figtabref@star\figtabref@}
+\def\tabsref{\bgroup\let\prefix@figtabref\short@tabs
+    \@ifstar\figtabref@star\figtabref@}
+
+
+
+\def\figtabref@star#1{\prefix@figtabref\ref{#1}\egroup}
+
+\def\figtabref@#1{%
+    \let\bf@or@normal\normalfont
+    \@ifundefined{used@#1}{\expandafter\gdef\csname used@#1\endcsname{used}%
+        \let\bf@or@normal\bfseries}{\relax}%
+    \bf@or@normal\prefix@figtabref\ref{#1}\egroup}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
