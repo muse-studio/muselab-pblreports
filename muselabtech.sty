@@ -20,7 +20,7 @@
 % ==============================================
 \def\thesisyear{2024}
 \def\submitdate{2025年1月31日}
-
+\def\revicedate{2025年2月7日}
 % ==============================================
 % ヘッダ
 % ==============================================
@@ -51,7 +51,7 @@
    %%%%
    \smash{\raisebox{-4mm}{\rlap{%
             {\DOIHeadfont%%
-            （\thesisyear 年度）%
+                  （\thesisyear 年度）%
                }%
          }}}%
    \hfil\@Rtop}%
@@ -171,8 +171,13 @@
       }%% end
       \par\vspace{5mm}
       \mbox{指導教員 \quad 橋田光代}
-      \par\vspace{5mm}
-      \mbox{提出日 \quad \submitdate}\newpage
+      \par\vspace{7mm}
+      \mbox{\begin{tabular}{rl}
+            提出日 & \submitdate \\
+            \\
+            改訂日 & \revicedate \\
+         \end{tabular}
+      }
       %
       \csname #1break@or@oneskip\endcsname
       %
