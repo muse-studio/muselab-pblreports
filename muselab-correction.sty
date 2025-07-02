@@ -1,0 +1,50 @@
+%% muselab-correction.sty
+%% m-use Lab. 用 LaTeX 添削補助パッケージ
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{muselab-correction}[2025/07/02 v1.5 Correction tools with final option and exclude gptsample]
+
+%% 必要なパッケージ
+\RequirePackage[normalem]{ulem} % 下線
+\RequirePackage{todonotes}      % コメント用付箋
+\RequirePackage{xcolor}         % 色指定
+\RequirePackage{comment}        % 環境ごと非表示用
+
+%% finalオプション処理
+\newif\if@finalcorrection
+\@finalcorrectionfalse
+
+\DeclareOption{final}{\@finalcorrectiontrue}
+\ProcessOptions\relax
+
+%% 添削コマンド定義
+\if@finalcorrection
+    %% final オプション時の定義（プレーンな出力）
+    \newcommand{\deleted}[1]{}
+    \newcommand{\commented}[1]{}
+    \newcommand{\added}[1]{#1}
+    \newcommand{\highlight}[1]{#1}
+    \newcommand{\needRef}[1]{#1}
+    \newcommand{\highlightComment}[2]{#1}
+    \newcommand{\modified}[2]{#2}
+    %% gptsample環境を完全に除去
+    \excludecomment{gptsample}
+\else
+    %% 通常時の定義（添削用表示）
+    \newcommand{\deleted}[1]{\sout{\textcolor{red}{#1}}}
+    \newcommand{\commented}[1]{\colorbox{red!30}{#1}}
+    \newcommand{\added}[1]{\textcolor{red}{#1}}
+    \newcommand{\highlight}[1]{\colorbox{yellow!40}{#1}}
+    \newcommand{\needRef}[1]{%
+        \textcolor{blue}{#1}\textsuperscript{\colorbox{blue!30}{要出典}}%
+    }
+    \newcommand{\highlightComment}[2]{%
+        \colorbox{yellow!40}{#1}%
+        \textsuperscript{\textcolor{red}{#2}}%
+    }
+    \newcommand{\modified}[2]{\deleted{#1}\added{#2}}
+    %% gptsample環境の定義（通常時は紫色）
+    \newenvironment{gptsample}{\begingroup\color{purple}}{\par\endgroup}
+\fi
+
+\endinput
