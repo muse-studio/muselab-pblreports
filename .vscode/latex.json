@@ -1,0 +1,51 @@
+{
+  "muse: deleted": {
+    "prefix": "muse-deleted",
+    "body": [
+      "\\deleted{${TM_SELECTED_TEXT:$1}}"
+    ],
+    "description": "muselab-correction: \\deleted (auto-generated)"
+  },
+  "muse: added": {
+    "prefix": "muse-added",
+    "body": [
+      "\\added{${TM_SELECTED_TEXT:$1}}"
+    ],
+    "description": "muselab-correction: \\added (auto-generated)"
+  },
+  "muse: commented": {
+    "prefix": "muse-commented",
+    "body": [
+      "\\commented{${TM_SELECTED_TEXT:$1}}"
+    ],
+    "description": "muselab-correction: \\commented (auto-generated)"
+  },
+  "muse: highlight": {
+    "prefix": "muse-highlight",
+    "body": [
+      "\\highlight{${TM_SELECTED_TEXT:$1}}"
+    ],
+    "description": "muselab-correction: \\highlight (auto-generated)"
+  },
+  "muse: needRef": {
+    "prefix": "muse-needRef",
+    "body": [
+      "\\needRef{${TM_SELECTED_TEXT:$1}}"
+    ],
+    "description": "muselab-correction: \\needRef (auto-generated)"
+  },
+  "muse: modified": {
+    "prefix": "muse-modified",
+    "body": [
+      "\\modified{${TM_SELECTED_TEXT:$1}}{${2:修正後}}"
+    ],
+    "description": "muselab-correction: \\modified (auto-generated)"
+  },
+  "muse: highlightComment": {
+    "prefix": "muse-highlightComment",
+    "body": [
+      "\\highlightComment{${TM_SELECTED_TEXT:$1}}{${2:コメント}}"
+    ],
+    "description": "muselab-correction: \\highlightComment (auto-generated)"
+  }
+}

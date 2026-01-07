@@ -1,0 +1,114 @@
+[
+  {
+    "key": "ctrl+d",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == latex",
+    "args": {
+      "snippet": "\\deleted{${TM_SELECTED_TEXT:$1}}"
+    }
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == latex",
+    "args": {
+      "snippet": "\\deleted{${TM_SELECTED_TEXT:$1}}"
+    }
+  },
+  {
+    "key": "ctrl+a",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == latex",
+    "args": {
+      "snippet": "\\added{${TM_SELECTED_TEXT:$1}}"
+    }
+  },
+  {
+    "key": "ctrl+shift+a",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == latex",
+    "args": {
+      "snippet": "\\added{${TM_SELECTED_TEXT:$1}}"
+    }
+  },
+  {
+    "key": "ctrl+c",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == latex",
+    "args": {
+      "snippet": "\\commented{${TM_SELECTED_TEXT:$1}}"
+    }
+  },
+  {
+    "key": "ctrl+shift+c",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == latex",
+    "args": {
+      "snippet": "\\commented{${TM_SELECTED_TEXT:$1}}"
+    }
+  },
+  {
+    "key": "ctrl+h",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == latex",
+    "args": {
+      "snippet": "\\highlight{${TM_SELECTED_TEXT:$1}}"
+    }
+  },
+  {
+    "key": "ctrl+shift+h",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == latex",
+    "args": {
+      "snippet": "\\highlight{${TM_SELECTED_TEXT:$1}}"
+    }
+  },
+  {
+    "key": "ctrl+r",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == latex",
+    "args": {
+      "snippet": "\\needRef{${TM_SELECTED_TEXT:$1}}"
+    }
+  },
+  {
+    "key": "ctrl+shift+r",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == latex",
+    "args": {
+      "snippet": "\\needRef{${TM_SELECTED_TEXT:$1}}"
+    }
+  },
+  {
+    "key": "ctrl+m",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == latex",
+    "args": {
+      "snippet": "\\modified{${TM_SELECTED_TEXT:$1}}{${2:修正後}}"
+    }
+  },
+  {
+    "key": "ctrl+shift+m",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == latex",
+    "args": {
+      "snippet": "\\modified{${TM_SELECTED_TEXT:$1}}{${2:修正後}}"
+    }
+  },
+  {
+    "key": "ctrl+alt+h",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == latex",
+    "args": {
+      "snippet": "\\highlightComment{${TM_SELECTED_TEXT:$1}}{${2:コメント}}"
+    }
+  },
+  {
+    "key": "ctrl+shift+alt+h",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorLangId == latex",
+    "args": {
+      "snippet": "\\highlightComment{${TM_SELECTED_TEXT:$1}}{${2:コメント}}"
+    }
+  }
+]
